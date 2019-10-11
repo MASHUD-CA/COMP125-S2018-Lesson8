@@ -2,7 +2,7 @@ let core;
 // core module (global) - IIFE - Immediayely-invoked Functin Expressions
 (function(core) {
   // App variables
-  let myObject; // OR  let myObject = {}; OR let myObject ; --> declaration, myObject = {} -->defination / assignment
+  //let myObject; // OR  let myObject = {}; OR let myObject ; --> declaration, myObject = {} -->defination / assignment
 
   /**
    * This function is used for Initialization
@@ -13,17 +13,15 @@ let core;
     console.log(
       `%c App Initializing... `,
       "font-weight: bold; font-size: 20px;"
-    );
+    ); // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty //Private properties (Different way of defining properties private and public)
 
-    myObject = {}; // object literal notation (gives us prototype) OR // Below is alternative way of protperties
+    //myObject = {}; // object literal notation (gives us prototype) OR // Below is alternative way of protperties
     // myObject = new Object(); //constructor notation (gives us prototype) OR
     // myObject = Object.create(null); (Does not give us prototype)
     /* Property definition
     myObject.name = "";
     myObject.age = 0;
-    */ // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty
-    //Private properties (Different way of defining properties private and public)
-    Object.defineProperty(myObject, "_name", {
+    */ /*Object.defineProperty(myObject, "_name", {
       configurable: false,
       enumerable: false,
       value: "",
@@ -56,7 +54,7 @@ let core;
         this._age = newValue;
       }
     });
-
+*/
     Main();
   }
   /**
@@ -65,11 +63,12 @@ let core;
    */
   function Main() {
     console.log(`%c App Started... `, "font-weight: bold; font-size: 20px;");
-
+    /*
     myObject.name = "Mashud";
     myObject.age = 40;
 
     console.log(myObject);
+    */
   }
   window.addEventListener("load", Start);
 })(core || (core = {}));
