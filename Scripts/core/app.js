@@ -1,8 +1,30 @@
-let core;
 // core module (global) - IIFE - Immediayely-invoked Functin Expressions
-(function(core) {
+(function() {
   // App variables
-  let Person;
+  let person;
+  let student;
+  /*
+  let Student = (function() {
+    function Student(name, age, studentID) {
+      objects.Person.call(this, name, age);
+      this._studentID = studentID;
+    }
+
+    //extends the Person class or inherit from the person class
+    Student.prototype = Object.create(objects.Person);
+    //Student.prototype.constructor = Student;
+
+    Student.prototype.saysHello = function() {
+      console.log(`${this._name} says Hello`);
+    };
+
+    Student.prototype.studies = function() {
+      console.log(`${this._name} is studying!`);
+    };
+
+    return Student;
+  })();
+*/
   /**
    * This function is used for Initialization
    *
@@ -12,17 +34,9 @@ let core;
       `%c App Initializing... `,
       "font-weight: bold; font-size: 20px;"
     );
-
-    // constructor notation to declare an object
-    Person = function(name, age) {
-      this._name = name;
-      this._age = age;
-    };
-
-    //Method declaration and difinition
-    Person.prototype.saysHello = function() {
-      console.log(`${this._name} says Hello!`);
-    };
+    //object creation also called instantiation
+    person = new objects.Person("Mashud", 38);
+    student = new objects.Student("Carol", 20, "123456789");
 
     Main();
   }
@@ -34,13 +48,14 @@ let core;
   function Main() {
     console.log(`%c App Started... `, "font-weight: bold; font-size: 20px;");
 
-    //object creation also called instantiation
-    let person = new Person("Mashud", 38);
-
     person.saysHello();
 
     console.log(person);
+    console.log(student);
+    student.studies();
+    student.saysHello();
   }
 
   window.addEventListener("load", Start);
-})(core || (core = {}));
+})();
+//})(core || (core = {}));
